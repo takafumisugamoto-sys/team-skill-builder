@@ -89,7 +89,7 @@ section.alt { background: var(--surface-subtle); }
 .grid2 > *, .grid3 > * { min-width: 0; }
 
 /* 導入 */
-.hero { min-height: 100vh; display: flex; align-items: center; padding-top: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+.hero { display: flex; align-items: center; padding-top: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
 .hero .wrap { width: 100%; gap: 16px; }
 .meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; }
 .meta b { font-size: 18px; color: var(--brand); font-variant-numeric: tabular-nums; }
@@ -288,8 +288,15 @@ section.sources { padding-top: 32px; padding-bottom: 48px; border-top: 1px solid
       <span>生成までの時間 <b>約8分</b>（Findyでの試験）</span>
       <span>配布 <b>zip</b>（Markdown 5ファイル）</span>
     </div>
+    <div class="card brand dl hero-dl" id="download">
+      <div class="head">
+        <h2>キットのダウンロード</h2>
+        <span class="sub">process-skill-builder-kit.zip ／ 版 0.1.1 ／ 47,727バイト</span>
+        <span class="sub">SHA-256: <code>8e86443735fda4cc50534795a3b7f49845ec18be3777368b41720c4198fc8d4d</code></span>
+      </div>
+      <a class="dl-btn" href="process-skill-builder-kit.zip">zipをダウンロード</a>
+    </div>
     <nav class="toc hero-toc" aria-label="目次">
-      <a href="#download">キットのダウンロード</a>
       <a href="#summary">要点</a>
       <a href="#output">作られるskill</a>
       <a href="#compare">skillあり・なしの比較</a>
@@ -301,20 +308,6 @@ section.sources { padding-top: 32px; padding-bottom: 48px; border-top: 1px solid
       <a href="#howto">使い方</a>
       <a href="#safety">安全性</a>
     </nav>
-    <div class="hint hero-hint"><span class="hint-line"></span>下へスクロール</div>
-  </div>
-</section>
-
-<section id="download" aria-label="キットのダウンロード">
-  <div class="wrap">
-    <div class="card brand dl reveal">
-      <div class="head">
-        <h2>キットのダウンロード</h2>
-        <span class="sub">process-skill-builder-kit.zip ／ 版 0.1.1 ／ 47,727バイト</span>
-        <span class="sub">SHA-256: <code>8e86443735fda4cc50534795a3b7f49845ec18be3777368b41720c4198fc8d4d</code></span>
-      </div>
-      <a class="dl-btn" href="process-skill-builder-kit.zip">zipをダウンロード</a>
-    </div>
   </div>
 </section>
 
@@ -972,7 +965,7 @@ function buildKitZip(entries) {
       .from('.hero .category', { y: 12, autoAlpha: 0, duration: 0.5 })
       .from('.hero-title', { y: 24, autoAlpha: 0, duration: 0.7 }, '-=0.2')
       .from('.hero-lead', { y: 16, autoAlpha: 0, duration: 0.6 }, '-=0.4')
-      .from(['.hero-meta', '.hero-toc', '.hero-hint'], { y: 12, autoAlpha: 0, duration: 0.5, stagger: 0.1 }, '-=0.3');
+      .from(['.hero-meta', '.hero-dl', '.hero-toc'], { y: 12, autoAlpha: 0, duration: 0.5, stagger: 0.1 }, '-=0.3');
 
     // 単体の要素
     gsap.utils.toArray('.reveal').forEach(function (el) {
